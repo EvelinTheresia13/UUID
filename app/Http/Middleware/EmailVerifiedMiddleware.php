@@ -16,9 +16,9 @@ class EmailVerifiedMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        $users = auth()->users();
+        $user = auth()->user();
 
-        if($users->email_verified_at !=null){
+        if($user->email_verified_at !=null){
             return $next($request);
         }
 
